@@ -1,8 +1,11 @@
 package com.mycorp.javachallengefour.activities;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,13 +27,16 @@ import retrofit2.Response;
 
 public class SecondActivity extends AppCompatActivity {
 
+    private UserAdapter userAdapter;
     ProgressBar pbLoading;
+    EditText search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         RecyclerView rvuser = findViewById(R.id.rvUsers);
         pbLoading = findViewById(R.id.loadings);
+        search = findViewById(R.id.search);
 
         showLoading(true);
 
@@ -45,7 +51,7 @@ public class SecondActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<UsersModel> users = response.body().getData();
-                    UserAdapter userAdapter = new UserAdapter(getApplicationContext(), users);
+                    userAdapter = new UserAdapter(getApplicationContext(), users);
 
                     rvuser.setAdapter(userAdapter);
                     showLoading(false);
@@ -57,6 +63,24 @@ public class SecondActivity extends AppCompatActivity {
                 Log.e("error", "Failed to fetch data", t);
             }
         });
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                userAdapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                userAdapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                userAdapter.getFilter().filter(editable);
+            }
+        });
+
     }
 
     private void showLoading(boolean b) {
