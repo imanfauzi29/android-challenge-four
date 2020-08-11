@@ -18,11 +18,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/pbLoading"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="144dp"
         android:layout_height="15dp"
-        android:progress="40"
+        android:max="100"
+        android:indeterminate="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
