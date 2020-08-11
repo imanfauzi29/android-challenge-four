@@ -25,7 +25,7 @@ public class TermActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_term);
+        setContentView(R.layout.activity_main);
 
         sharedPreferences = getSharedPreferences(SplashActivity.MY_SHARED, Context.MODE_PRIVATE);
 
