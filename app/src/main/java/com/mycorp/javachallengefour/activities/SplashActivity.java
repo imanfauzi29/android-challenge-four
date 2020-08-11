@@ -1,4 +1,4 @@
-package com.mycorp.javachallengefour;
+package com.mycorp.javachallengefour.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.widget.ProgressBar;
 
 import com.luqman.dev.helloworld.R;
 

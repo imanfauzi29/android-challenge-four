@@ -1,4 +1,4 @@
-package com.mycorp.javachallengefour;
+package com.mycorp.javachallengefour.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

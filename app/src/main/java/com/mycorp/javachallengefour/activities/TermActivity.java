@@ -1,8 +1,7 @@
-package com.mycorp.javachallengefour;
+package com.mycorp.javachallengefour.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import com.luqman.dev.helloworld.R;
+import com.mycorp.javachallengefour.activities.SplashActivity;
 
 public class TermActivity extends AppCompatActivity {
 
