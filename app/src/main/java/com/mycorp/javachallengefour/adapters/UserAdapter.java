@@ -124,10 +124,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> im
 
                     int pos = getAdapterPosition();
                     UsersModel user = filteredUser.get(pos);
-                    Intent intent = new Intent(context, DetailUser.class);
+
+                    Intent intent = new Intent();
+                    intent = new Intent(context, DetailUser.class);
                     intent.putExtra("username", user.getFirstName() + " " + user.getLastName());
                     intent.putExtra("email", user.getEmail());
                     intent.putExtra("image", user.getAvatar());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }
             });

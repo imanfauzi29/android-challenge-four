@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/images_profiles"
+            android:id="@+id/profile"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:src="@drawable/ic_launcher_foreground"
@@ -28,7 +28,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
-            android:id="@+id/users_names"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/user_email"
+            android:id="@+id/emails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -50,7 +50,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.525"
             app:layout_constraintStart_toStartOf="@+id/profile_image"
-            app:layout_constraintTop_toTopOf="@+id/users_names"
+            app:layout_constraintTop_toTopOf="@+id/username"
             tools:ignore="UnknownId" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,10 @@
 package com.mycorp.javachallengefour.activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -21,16 +22,20 @@ public class DetailUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_user);
 
-        userName = findViewById(R.id.users_names);
-        userEmail = findViewById(R.id.user_email);
-        profileImage = findViewById(R.id.profile_image);
+        userName = findViewById(R.id.username);
+        userEmail = findViewById(R.id.emails);
+        profileImage = findViewById(R.id.profile);
 
         Bundle extras = getIntent().getExtras();
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
+        Log.d("ext", actionBar.toString());
         actionBar.setTitle(extras.getString("username").toUpperCase());
         userName.setText(extras.getString("username"));
         userEmail.setText(extras.getString("email"));
-        Glide.with(getApplicationContext()).load(extras.getString("image")).apply(RequestOptions.centerCropTransform()).into(profileImage);
+        Glide.with(getApplicationContext())
+                .load(extras.getString("image"))
+                .apply(RequestOptions.centerCropTransform())
+                .into(profileImage);
 
     }
 }

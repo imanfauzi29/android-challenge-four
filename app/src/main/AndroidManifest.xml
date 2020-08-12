@@ -9,13 +9,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/FullTheme">
+        android:theme="@style/AppTheme">
         <activity android:name="com.mycorp.javachallengefour.activities.DetailUser">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycorp.javachallengefour.activities.SecondActivity"/>
         </activity>
-        <activity android:name="com.mycorp.javachallengefour.activities.SecondActivity" />
-        <activity android:name="com.mycorp.javachallengefour.activities.TermActivity" />
+        <activity android:name="com.mycorp.javachallengefour.activities.SecondActivity"
+            android:theme="@style/FullTheme"/>
+        <activity android:name="com.mycorp.javachallengefour.activities.TermActivity"
+            android:theme="@style/FullTheme"/>
         <activity
             android:name="com.mycorp.javachallengefour.activities.SplashActivity"
             android:label="@string/app_name"
