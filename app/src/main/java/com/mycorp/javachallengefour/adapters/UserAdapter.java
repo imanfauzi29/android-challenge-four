@@ -2,6 +2,7 @@ package com.mycorp.javachallengefour.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.luqman.dev.helloworld.R;
+import com.mycorp.javachallengefour.activities.DetailUser;
 import com.mycorp.javachallengefour.models.UsersModel;
 
 import java.util.ArrayList;
@@ -26,7 +29,7 @@ import java.util.List;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> implements Filterable {
 
     private List<UsersModel> users;
-    Context context;
+    public Context context;
     private List<UsersModel> filteredUser;
 
     public UserAdapter(Context applicationContext, List<UsersModel> users) {
@@ -45,7 +48,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> im
     public UserAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_user, parent, false);
-
         return new viewHolder(view);
     }
 
@@ -103,10 +105,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> im
     }
 
 
-    public static class viewHolder extends RecyclerView.ViewHolder {
-
+    public class viewHolder extends RecyclerView.ViewHolder {
         TextView name, email;
         ImageView image;
+        CardView cvLayout;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
@@ -114,6 +116,23 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> im
             name = itemView.findViewById(R.id.users_names);
             email = itemView.findViewById(R.id.user_email);
             image = itemView.findViewById(R.id.images_profiles);
+            cvLayout = itemView.findViewById(R.id.users_items);
+
+            cvLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    int pos = getAdapterPosition();
+                    UsersModel user = filteredUser.get(pos);
+                    Intent intent = new Intent(context, DetailUser.class);
+                    intent.putExtra("username", user.getFirstName() + " " + user.getLastName());
+                    intent.putExtra("email", user.getEmail());
+                    intent.putExtra("image", user.getAvatar());
+                    context.startActivity(intent);
+                }
+            });
         }
+
+
     }
 }

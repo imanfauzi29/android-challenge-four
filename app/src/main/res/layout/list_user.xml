@@ -52,7 +52,8 @@
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintHorizontal_bias="0.525"
                app:layout_constraintStart_toStartOf="@+id/profile_image"
-               app:layout_constraintTop_toTopOf="@+id/users_names" />
+               app:layout_constraintTop_toTopOf="@+id/users_names"
+               tools:ignore="UnknownId" />
 
        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
